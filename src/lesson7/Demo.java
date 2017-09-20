@@ -11,6 +11,7 @@ public class Demo {
         User user2 = new User();
 
         User user3 = new User("Jack");
+        User user4 = new User("Stas");
 
         Car car = new Car(10000, 2015, "Anton");
 
