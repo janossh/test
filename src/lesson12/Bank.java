@@ -44,6 +44,10 @@ public abstract class Bank {
         return rating;
     }
 
+    public long numberOfEmployee() {
+        return numberOfEmployee;
+    }
+
     public long getTotalCapital() {
         return totalCapital;
     }
