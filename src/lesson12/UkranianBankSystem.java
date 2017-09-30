@@ -2,8 +2,8 @@ package lesson12;
 
 public class UkranianBankSystem implements BankSystem {
 
-    public UkranianBankSystem() {
-    }
+//    public UkranianBankSystem() {
+//    }
 
     @Override
     public void withdraw(User user, int amount) {
