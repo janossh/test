@@ -60,7 +60,7 @@ public abstract class Bank {
         this.currency = currency;
     }
 
-    public void setNumberOfEmployee(int numberOfEmployee) {
+    public void setNumberOfEmployees(int numberOfEmployee) {
         this.numberOfEmployees = numberOfEmployee;
     }
 
