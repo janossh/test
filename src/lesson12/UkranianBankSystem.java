@@ -17,8 +17,8 @@ public class UkranianBankSystem implements BankSystem {
 
     @Override
     public void fund(User user, int amount) {
-        if (user.getBank().getLimitOfFunding() <= amount)
-            user.setBalance(amount - amount * user.getBank().getCommission(amount));
+        if (user.getBank().getLimitOfFunding() > amount)
+            user.setBalance(user.getBalance() + (amount - amount * user.getBank().getCommission(amount)));
         else
             System.err.println("Can't fund money " + user.getSalary() + " to user " + user.toString());
     }
@@ -29,10 +29,10 @@ public class UkranianBankSystem implements BankSystem {
         if (!checkWithdraw(fromUser, amount))
             return;
 
-        if (toUser.getBank().getLimitOfFunding() > amount)
+        if (toUser.getBank().getLimitOfFunding() < amount)
             return;
 
-        fromUser.setBalance(fromUser.getBalance() - amount - fromUser.getBank().getCommission(amount));
+        //fromUser.setBalance(fromUser.getBalance() - amount - fromUser.getBank().getCommission(amount));
 
         withdraw(fromUser, amount);
         fund(toUser, amount);
@@ -40,8 +40,8 @@ public class UkranianBankSystem implements BankSystem {
 
     @Override
     public void paySalary(User user) {
-        if (user.getBank().getLimitOfFunding() <= user.getSalary())
-            user.setBalance(user.getSalary() - user.getSalary() * user.getBank().getCommission(user.getSalary()));
+        if (user.getBank().getLimitOfFunding() > user.getSalary())
+            user.setBalance(user.getBalance() + (user.getSalary() - user.getSalary() * user.getBank().getCommission(user.getSalary())));
         else
             System.err.println("Can't pay salary " + user.getSalary() + " to user " + user.toString());
     }
