@@ -17,16 +17,17 @@ public class Main {
         BankSystem bankSystem = new UkranianBankSystem();
 
         runMyMetod(new User[] {user1, user2,user3,user4, user5,user6}, bankSystem);
+        //runMyMetod(new User[] {user1, user2}, bankSystem);
 
     }
 
     private static void runMyMetod(User[] users, BankSystem bankSystem) {
 
         for (int i = 0; i < users.length; i++) {
-            bankSystem.withdraw(users[i], 150);
-            bankSystem.fund(users[i], 150);
+            bankSystem.withdraw(users[i], 10);
+            bankSystem.fund(users[i], 200);
             bankSystem.paySalary(users[i]);
-            bankSystem.transferMoney(users[i], users[i == (users.length - 1) ? 0 : i+1], 150);
+            bankSystem.transferMoney(users[i], users[i == (users.length - 1) ? 0 : i+1], 15);
 
         }
 
